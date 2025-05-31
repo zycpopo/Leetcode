@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=104 lang=cpp
+ * @lc app=leetcode.cn id=144 lang=cpp
  *
- * [104] 二叉树的最大深度
+ * [144] 二叉树的前序遍历
  */
 
 // @lc code=start
@@ -18,14 +18,20 @@
  */
 class Solution {
 public:
-    int maxDepth(TreeNode* root) {
-        if(root==NULL) return 0;
+    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> result;
+    function<void(TreeNode*)> dfs = [&](TreeNode* node)
+    {
+       if(node==nullptr) return ;
 
-        int left=maxDepth(root->left);
-        int right=maxDepth(root->right);
-        
-        return 1+std::max(left,right);
-    }
+       result.push_back(node->val);
+       dfs(node->left);
+       dfs(node->right);
+    };
+
+    dfs(root);
+    return result;
+}
 };
 // @lc code=end
 
