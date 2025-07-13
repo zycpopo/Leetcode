@@ -8,7 +8,7 @@
 class Solution {
 public:
     vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
-        
+        int a = n;
     }
 };
 // @lc code=end
