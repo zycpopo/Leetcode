@@ -22,7 +22,7 @@ public:
             while(left<right)
             {
                 int sum=nums[left]+nums[right];
-                if(sum>target) right--;
+                if(sum > target) right--;
                 else if(sum<target) left++;
                 else{
                     ret.push_back({nums[i],nums[left],nums[right]});
