@@ -5,20 +5,24 @@
  */
 
 // @lc code=start
-class MyQueue {
+class MyQueue 
+{
     private:
         stack<int>stack1;
         stack<int>stack2;
     public:
-        MyQueue() {
+        MyQueue() 
+        {
             
         }
         
-        void push(int x) {
+        void push(int x) 
+        {
             stack1.push(x);
         }
         
-        int pop() {
+        int pop() 
+        {
             if(stack2.empty())
                while(!stack1.empty())
                {
@@ -31,7 +35,8 @@ class MyQueue {
             return front;
         }
         
-        int peek() {
+        int peek() 
+        {
              if (stack2.empty())  
              {
                 while (!stack1.empty()) 
@@ -44,7 +49,8 @@ class MyQueue {
             return stack2.top();
         }
         
-        bool empty() {
+        bool empty()
+        {
             return stack1.empty() && stack2.empty();
         }
     };
