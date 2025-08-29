@@ -26,6 +26,7 @@ public:
             }
         }
     return s;
+    
     }
 };
 // @lc code=end
