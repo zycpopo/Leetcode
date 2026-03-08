@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
 public:
-    int largestSumAfterKNegations(vector<int>& nums, int k) {
+    /*int largestSumAfterKNegations(vector<int>& nums, int k) {
         unordered_map<int, int> freq;
         for (int num: nums) {
             freq[num] += 1;
@@ -40,7 +40,31 @@ public:
             }
         }
         return ans;
+    }*/
+    int largestSumAfterKNegations(vector<int>& nums, int k) {
+    sort(nums.begin(), nums.end());
+    
+    // 尽量把负数变正（从最小的负数开始）
+    for (int& x : nums) {
+        if (x < 0 && k > 0) {
+            x = -x;
+            k--;
+        } else {
+            break;
+        }
     }
+
+    // 计算当前总和
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+
+    // 如果还有剩余 k，且为奇数，翻转最小的绝对值元素一次
+    if (k % 2 == 1) {
+        int minAbs = *min_element(nums.begin(), nums.end());
+        sum -= 2 * minAbs;  // 因为之前加的是 +minAbs，现在要变成 -minAbs，差值是 -2*minAbs
+    }
+
+    return sum;
+}
 };
 // @lc code=end
 
