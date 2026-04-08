@@ -27,7 +27,7 @@ public:
             dp[0]=dp[1];
             dp[1]=result;
         }
-        return result;
+        return dp[1];
     }*/
 
     //T(n),S(n)
